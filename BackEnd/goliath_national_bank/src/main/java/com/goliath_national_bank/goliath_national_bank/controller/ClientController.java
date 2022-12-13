@@ -1,8 +1,9 @@
-package com.goliath_national_bank.controller;
 
-import com.goliath_national_bank.entity.Client;
-import com.goliath_national_bank.service.ClientService;
-import org.apache.coyote.Response;
+package com.goliath_national_bank.goliath_national_bank.controller;
+
+
+import com.goliath_national_bank.goliath_national_bank.entity.Client;
+import com.goliath_national_bank.goliath_national_bank.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
+
+
 
     @Autowired
     ClientService clientService;
@@ -29,7 +32,7 @@ public class ClientController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @PostMapping
-    public ResponseEntity<Client> crearClient (@RequestBody Client client){
+    public ResponseEntity<Client> createClients (@RequestBody Client client){
         return new ResponseEntity<>(clientService.createClient(client),
                 HttpStatus.CREATED
                 );

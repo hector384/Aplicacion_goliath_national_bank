@@ -9,5 +9,4 @@ public class GoliathNationalBankApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GoliathNationalBankApplication.class, args);
 	}
-
 }

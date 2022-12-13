@@ -1,4 +1,4 @@
-package com.goliath_national_bank.entity;
+package com.goliath_national_bank.goliath_national_bank.entity;
 
 
 import javax.persistence.*;

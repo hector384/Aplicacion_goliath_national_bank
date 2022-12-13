@@ -1,7 +1,8 @@
-package com.goliath_national_bank.service;
+package com.goliath_national_bank.goliath_national_bank.service;
 
-import com.goliath_national_bank.entity.Client;
-import com.goliath_national_bank.repository.ClientRepository;
+import com.goliath_national_bank.goliath_national_bank.entity.Client;
+import com.goliath_national_bank.goliath_national_bank.repository.ClientRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
