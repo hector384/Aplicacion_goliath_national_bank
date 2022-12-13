@@ -11,6 +11,7 @@ public interface ClientService {
     public List<Client> getAllClients();
     public Optional<Client>  getClientById(int id);
     public boolean deleteClientById (int id);
+    public Client updateClient(Client client);
 
 
 

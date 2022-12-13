@@ -37,4 +37,29 @@ public class ClientServiceImplementation implements ClientService {
             return true;
         }).orElse(false);
     }
+
+    @Override
+    public Client updateClient(Client client) {
+        boolean resourseFound = false;
+        for(Client currentClient: getAllClients()){
+
+            if(currentClient.getId_client() == client.getId_client()){
+
+                resourseFound = true;
+                currentClient.setId_client(client.getId_client());
+                currentClient.setTipeIdentification(client.getTipeIdentification());
+                currentClient.setClient_Direction(currentClient.getClient_Direction());
+                currentClient.setEmail_Client(client.getEmail_Client());
+                currentClient.setName_Client(client.getName_Client());
+                currentClient.setClient_bornDate(client.getClient_bornDate());
+                currentClient.setLastNameClient(client.getLastNameClient());
+                currentClient.setUser_modification(client.getUser_modification());
+                currentClient.setCreation_user(client.getCreation_user());
+                currentClient.setUser_modification(client.getUser_modification());
+            }
+
+        }
+        if(!resourseFound) getAllClients().add(client);
+        return clientRepository.save(client);
+    }
 }
