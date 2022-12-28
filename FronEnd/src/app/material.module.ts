@@ -6,6 +6,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatIconModule } from '@angular/material/icon';
 
 const myModules = [];
 
@@ -17,7 +19,9 @@ const myModules = [];
       MatMenuModule,
       MatButtonModule,
       MatCardModule,
-      MatInputModule
+      MatInputModule,
+      MatDatepickerModule,
+      MatIconModule
 
    ],
    exports: [
@@ -27,7 +31,9 @@ const myModules = [];
       MatMenuModule,
       MatButtonModule,
       MatCardModule,
-      MatInputModule
+      MatInputModule,
+      MatDatepickerModule,
+      MatIconModule
 
    ],
 })
