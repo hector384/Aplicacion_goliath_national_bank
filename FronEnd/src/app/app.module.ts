@@ -11,7 +11,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { MatCardModule } from '@angular/material/card';
     MatToolbarModule,
     SidebarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule
 
 
   ],

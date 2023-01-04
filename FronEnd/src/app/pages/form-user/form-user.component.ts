@@ -19,7 +19,8 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class FormUserComponent {
 
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-
+  selectFormControl = new FormControl('', Validators.required);
   matcher = new MyErrorStateMatcher();
 
 }
+

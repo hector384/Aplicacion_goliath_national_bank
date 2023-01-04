@@ -8,6 +8,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 const myModules = [];
 
@@ -21,7 +23,9 @@ const myModules = [];
       MatCardModule,
       MatInputModule,
       MatDatepickerModule,
-      MatIconModule
+      MatIconModule,
+      MatPaginatorModule,
+      MatTableModule
 
    ],
    exports: [
@@ -33,7 +37,9 @@ const myModules = [];
       MatCardModule,
       MatInputModule,
       MatDatepickerModule,
-      MatIconModule
+      MatIconModule,
+      MatPaginatorModule,
+      MatTableModule
 
    ],
 })
