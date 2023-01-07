@@ -12,6 +12,12 @@ export interface UserData {
   name_Client: string;
   lastNameClient: string;
   number_Identification: string;
+  email_Client: string;
+  client_bornDate: string;
+  client_Direction: string;
+  tipeIdentification: string;
+
+
 }
 
 
@@ -24,7 +30,8 @@ export interface UserData {
 })
 export class TableCustomerComponent implements AfterViewInit {
 
-  displayedColumns: string[] = ['id_client', 'name_Client', 'lastNameClient', 'number_Identification'];
+  displayedColumns: string[] = ['id_client', 'name_Client', 'number_Identification',
+    'Actions']
   dataSource: MatTableDataSource<UserData>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -37,13 +44,8 @@ export class TableCustomerComponent implements AfterViewInit {
     private clienteService: ClientsService
   ) {
 
-    this.clienteService.getClients().subscribe((res: any) => {
-      console.log(res),
-        this.peopl = res
-      console.log(this.peopl)
 
-    });
-    console.log(this.peopl)
+
     //const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(this.userD);
@@ -58,7 +60,7 @@ export class TableCustomerComponent implements AfterViewInit {
   getCustomer() {
     this.clienteService.getClients().subscribe(response => {
       this.userD = response
-      console.log(this.userD);
+
     })
   }
 

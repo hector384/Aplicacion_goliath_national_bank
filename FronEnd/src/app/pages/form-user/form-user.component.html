@@ -4,54 +4,45 @@
             <img class="img" src="./assets/img/GNB.png" alt="picture of a bank">
         </div>
         <mat-card-content>
-
-            <mat-form-field class="full-width-input">
-                <input type="text" matInput placeholder="Name" required>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="text" matInput placeholder="Last name" required>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <mat-label>tipo de documento(required)</mat-label>
-                <select matNativeControl required [formControl]="selectFormControl">
-                    <option label=""></option>
-                    <option value="saab">C.C</option>
-                    <option value="mercedes">Passport</option>
-                    <option value="audi">C.E</option>
-                </select>
-                <mat-hint></mat-hint>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="number" matInput placeholder="number" required>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="number" matInput placeholder="phone" required>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="date" matInput placeholder="Fecha de nacimiento" required>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="text" matInput placeholder="usuario" required>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="password" matInput placeholder="password" required>
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                    placeholder="Ex. pat@example.com">
-                <mat-hint></mat-hint>
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                    Email is <strong>required</strong>
-                </mat-error>
-            </mat-form-field>
-            <mat-form-field class="full-width-input">
-                <input type="text" matInput placeholder="Direccion: " required>
-            </mat-form-field>
-            <button mat-raised-button color="primary" type="submit" class>Submit</button>
+            <form [formGroup]="NewCustomerForm" (ngSubmit)="onSaveNewCustomer(NewCustomerForm.value)">
+                <mat-form-field class="full-width-input">
+                    <input formControlName="name_Client" type="text" matInput placeholder="Name" required>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="text" formControlName="lastNameClient" matInput placeholder="Last name" required>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <mat-label>tipo de documento</mat-label>
+                    <select matNativeControl formControlName="tipeIdentification">
+                        <option value="C:C">C.C</option>
+                        <option value="Passport">Passport</option>
+                        <option value="C:E">C.E</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="number" formControlName="number_Identification" matInput placeholder="number" required>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="date" formControlName="client_bornDate" matInput placeholder="Fecha de nacimiento"
+                        required>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="email_Client" matInput [errorStateMatcher]="matcher"
+                        placeholder="Ex. pat@example.com">
+                    <mat-hint></mat-hint>
+                    <mat-error *ngIf=" NewCustomerForm.hasError('email') && !NewCustomerForm.hasError('required')">
+                        Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                        Email is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="text" formControlName="client_Direction" matInput placeholder="Direccion: " required>
+                </mat-form-field>
+                <button mat-raised-button color="primary">Submit</button>
+            </form>
         </mat-card-content>
 
 
