@@ -12,11 +12,13 @@ import { SidebarModule } from './shared/components/sidebar/sidebar.module';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { DatailsCustomerComponent } from './pages/table-customer/datails-customer/datails-customer.component';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DatailsCustomerComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
+import { Subject, Subscription, tap } from 'rxjs';
 
 
 export interface UserData {
@@ -30,6 +32,7 @@ export interface UserData {
 })
 export class TableCustomerComponent implements AfterViewInit {
 
+
   displayedColumns: string[] = ['id_client', 'name_Client', 'number_Identification',
     'Actions']
   dataSource: MatTableDataSource<UserData>;
@@ -39,7 +42,6 @@ export class TableCustomerComponent implements AfterViewInit {
 
 
   public peopl: Array<any> = []
-
   constructor(
     private clienteService: ClientsService
   ) {
@@ -57,6 +59,8 @@ export class TableCustomerComponent implements AfterViewInit {
 
   }
   userD: any;
+
+
   getCustomer() {
     this.clienteService.getClients().subscribe(response => {
       this.userD = response
@@ -67,12 +71,50 @@ export class TableCustomerComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
+  DeleteCustomer(user: UserData) {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
 
+    Swal.fire({
+      title: '¿Seguro que desea eliminar este usuario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, Eliminar!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.clienteService.deleteCustomerById(user)
+
+        Swal.fire(
+          'Eliminado!',
+          'Este usuario ha sido eliminado.',
+          'success'
+        )
+        this.clienteService.getClients().subscribe(response => {
+          this.userD = response
+        })
+      } else if (
+        /* Read more about handling dismissals below */
+        result.dismiss === Swal.DismissReason.cancel
+      ) {
+        Swal.fire(
+          'Cancelado',
+          'El usuario no ha sido eliminado',
+          'error'
+        )
+      }
+    })
+  }
 }
 
 

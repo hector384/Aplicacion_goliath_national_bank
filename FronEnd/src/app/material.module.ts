@@ -25,7 +25,8 @@ const myModules = [];
       MatDatepickerModule,
       MatIconModule,
       MatPaginatorModule,
-      MatTableModule
+      MatTableModule,
+
 
    ],
    exports: [
@@ -39,7 +40,8 @@ const myModules = [];
       MatDatepickerModule,
       MatIconModule,
       MatPaginatorModule,
-      MatTableModule
+      MatTableModule,
+
 
    ],
 })

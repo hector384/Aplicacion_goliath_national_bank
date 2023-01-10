@@ -33,8 +33,5 @@ table {
  
 }
 
-tr:hover{
-  background-color: powderblue;
-  transition: background-color .5s;
-}
+
 
