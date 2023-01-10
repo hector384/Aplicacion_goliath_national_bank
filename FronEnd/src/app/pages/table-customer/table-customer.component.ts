@@ -6,7 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
-import { Subject, Subscription, tap } from 'rxjs';
+
 
 
 export interface UserData {
@@ -18,11 +18,10 @@ export interface UserData {
   client_bornDate: string;
   client_Direction: string;
   tipeIdentification: string;
+  creationDate: string;
 
 
 }
-
-
 
 
 @Component({
@@ -76,14 +75,6 @@ export class TableCustomerComponent implements AfterViewInit {
     }
   }
   DeleteCustomer(user: UserData) {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false
-    })
-
     Swal.fire({
       title: '¿Seguro que desea eliminar este usuario?',
       icon: 'warning',

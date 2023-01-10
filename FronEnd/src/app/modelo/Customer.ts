@@ -7,4 +7,6 @@ export interface Customer {
     client_bornDate: String,
     client_Direction: String,
     tipeIdentification: String,
+    creationDate: String,
+
 }

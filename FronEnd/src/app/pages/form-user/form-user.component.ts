@@ -4,7 +4,8 @@ import { FormBuilder, FormControl, FormGroupDirective, FormGroup, NgForm, Valida
 import { ErrorStateMatcher } from '@angular/material/core';
 import { ClientsService } from 'src/app/services/clients.service';
 import { Router } from '@angular/router';
-import { Customer } from 'src/app/modelo/Customer';
+import Swal from 'sweetalert2';
+
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -20,17 +21,9 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./form-user.component.css']
 })
 export class FormUserComponent implements OnInit {
-  /* NewCustomerForm = this.fb.group({
- 
-     name_Client: [''],
-     lastNameClient: [''],
-     number_Identification: [''],
-     email_Client: [''],
-     client_bornDate: [''],
-     client_Direction: [''],
-     tipeIdentification: [''],
-   });*/
+
   NewCustomerForm = new FormGroup({
+
     name_Client: new FormControl('', Validators.required),
     lastNameClient: new FormControl('', Validators.required),
     number_Identification: new FormControl('', Validators.required),
@@ -38,6 +31,8 @@ export class FormUserComponent implements OnInit {
     client_bornDate: new FormControl('', Validators.required),
     client_Direction: new FormControl('', Validators.required),
     tipeIdentification: new FormControl('', Validators.required),
+    creationDate: new FormControl('5', Validators.required),
+
   });
 
 
@@ -50,23 +45,43 @@ export class FormUserComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
   }
-  onSaveNewCustomer(form: any) {
-    console.log(form);
-    const formValue = this.NewCustomerForm.value
-    this.clientService.createCustomer(form)
-      .subscribe(data => {
-        alert("exito");
-        console.log(data);
-        this.router.navigate(['/table-customer'])
+  age!: number;
+  showAge!: number;
+
+
+  onSaveNewCustomer(form: any,) {
+    const convertAge = new Date(form.client_bornDate);
+    const timeDiff = Math.abs(Date.now() - convertAge.getTime());
+    this.showAge = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
+    console.log(this.showAge)
+
+    if (form.name_Client && form.tipeIdentification && form.lastNameClient &&
+      form.email_Client && form.client_Direction && form.number_Identification == " "
+    ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes llenar todos los campos!',
       })
-  }
-  sayHello() {
-    alert("Hello")
-    console.log("hola perro");
 
+    } else if (this.showAge < 18) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El usuario no puede ser menor de edad!',
+      })
+    }
+    else {
+      this.clientService.createCustomer(form)
+        .subscribe(data => {
+          console.log(data);
+          this.router.navigate(['/table-customer'])
+        })
+    }
+    console.log(form.name_Client);
   }
-
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   selectFormControl = new FormControl('', Validators.required);
   matcher = new MyErrorStateMatcher();

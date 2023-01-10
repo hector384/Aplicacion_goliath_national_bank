@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserData } from '../pages/table-customer/table-customer.component';
 import { Customer } from '../modelo/Customer';
-import { CdkVirtualScrollableWindow } from '@angular/cdk/scrolling';
-import { Observable, Subject, tap } from 'rxjs';
+import { Subject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,21 +23,25 @@ export class ClientsService {
   getRefresh$() {
     return this._refresh$;
   }
+
   getClients() {
     let header = new HttpHeaders().set('Content-Type', 'application/json')
     return this.http.get(this._url, { headers: header });
   }
+
   createCustomer(customer: Customer) {
+    let date = new Date()
+    customer.creationDate = date.toISOString()
+    console.log(customer)
     return this.http.post<UserData>(this._urlput, customer);
   }
+
   deleteCustomerById(customer: Customer) {
-    let V = `${this._urldelete}/${customer.id_client}`
-    console.log(V)
+
     return this.http.delete(`${this._urldelete}/${customer.id_client}`)
       .subscribe({
         next: data => {
           this.status = 'Delete successful';
-
         },
         error: error => {
           this['errorMessage'] = error.message;
@@ -48,3 +52,5 @@ export class ClientsService {
 
   }
 }
+
+
