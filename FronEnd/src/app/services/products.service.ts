@@ -1,37 +1,36 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UserData } from '../pages/table-customer/table-customer.component';
-import { Customer } from '../modelo/Customer';
+import { Products } from '../modelo/Customer';
 import { Subject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClientsService {
-  [x: string]: any;
-  _url = 'http://localhost:8090/clients'
-  _urldelete = 'http://localhost:8090/clients/delete'
-  _urlput = 'http://localhost:8090/clients/post'
+export class ProductsService {
+
+  _url = 'http://localhost:8090/Products'
+  _urlput = 'http://localhost:8090/Products/post'
   status!: string;
+  errorMessage!: string;
+
   constructor(
     private http: HttpClient,
-  ) {
+  ) { }
 
-  }
-
-  getClients() {
+  getProducts() {
     let header = new HttpHeaders().set('Content-Type', 'application/json')
     return this.http.get(this._url, { headers: header });
   }
 
-  createCustomer(customer: Customer) {
-    return this.http.post<UserData>(this._urlput, customer);
+
+  createProducts(products: Products) {
+    return this.http.post<UserData>(this._urlput, products);
   }
+  deleteProductsById(products: Products) {
 
-  deleteCustomerById(customer: Customer) {
-
-    return this.http.delete(`${this._urldelete}/${customer.id_client}`)
+    return this.http.delete(`${this._url}/${products.id_account}`)
       .subscribe({
         next: data => {
           this.status = 'Delete successful';
@@ -44,6 +43,5 @@ export class ClientsService {
 
 
   }
+
 }
-
-

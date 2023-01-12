@@ -1,0 +1,43 @@
+<div class="login-form">
+    <mat-card>
+        <div class="divimg">
+            <img class="img" src="./assets/img/GNB.png" alt="picture of a bank">
+        </div>
+        <mat-card-content>
+            <form [formGroup]="productsForm" (ngSubmit)="onSaveNewProduct(productsForm.value)">
+                <mat-form-field class="full-width-input">
+                    <mat-label>tipo de Cuenta: </mat-label>
+                    <select matNativeControl formControlName="type_account">
+                        <option value="cuenta corriente">cuenta corriente</option>
+                        <option value="cuenta de ahorros">cuenta de ahorros</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <mat-label>Estado de la Cuenta: </mat-label>
+                    <select matNativeControl formControlName="estate_account">
+                        <option value="activa">Activa</option>
+                        <option value="inactiva">Inactiva</option>
+                        <option value="cancelada">Cancelada</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <mat-label>exenta GMF: </mat-label>
+                    <select matNativeControl formControlName="gmf_on">
+                        <option value="yes">si</option>
+                        <option value="no">no</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="number" matInput placeholder="Saldo Inicial:" formControlName="available_balance"
+                        required>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="number" matInput placeholder="Numero de identificacion:"
+                        formControlName="number_Identification" required>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">Submit</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

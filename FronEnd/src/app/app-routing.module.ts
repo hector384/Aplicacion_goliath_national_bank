@@ -7,6 +7,8 @@ const routes: Routes = [{ path: 'form-user', loadChildren: () => import('./pages
 { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule) },
 { path: 'login', loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule) },
 { path: 'table-customer', loadChildren: () => import('./pages/table-customer/table-customer.module').then(m => m.TableCustomerModule) },
+{ path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
+
 ];
 
 @NgModule({

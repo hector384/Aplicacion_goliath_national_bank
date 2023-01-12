@@ -38,9 +38,6 @@ export class TableCustomerComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
-
-  public peopl: Array<any> = []
   constructor(
     private clienteService: ClientsService
   ) {

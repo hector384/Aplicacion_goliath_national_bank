@@ -10,3 +10,12 @@ export interface Customer {
     creationDate: String,
 
 }
+
+export interface Products {
+    id_account: String,
+    gmf_on: String,
+    type_account: String,
+    estate_account: String,
+    available_balance: Number,
+    number_Identification: String
+}
