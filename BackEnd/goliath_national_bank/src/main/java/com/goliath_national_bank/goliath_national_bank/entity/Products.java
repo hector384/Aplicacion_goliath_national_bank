@@ -1,12 +1,13 @@
 package com.goliath_national_bank.goliath_national_bank.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Entity
 @Table(name= "Products")
 
-public class Products {
+public class Products implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

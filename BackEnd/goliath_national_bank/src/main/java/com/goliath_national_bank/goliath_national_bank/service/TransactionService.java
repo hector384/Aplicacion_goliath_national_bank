@@ -1,6 +1,7 @@
 package com.goliath_national_bank.goliath_national_bank.service;
 
 
+import com.goliath_national_bank.goliath_national_bank.entity.Products;
 import com.goliath_national_bank.goliath_national_bank.entity.Transactions;
 
 import java.util.List;
@@ -14,4 +15,11 @@ public interface TransactionService {
     public List<Transactions> getTransactionsByCC(String emiterAccount);
 
     public boolean deleteTransactionsById (int id);
+
+    public boolean VeryAcountExist (Transactions transactions);
+    public boolean VeryAcount2Exist (Transactions transactions);
+
+    public String updateBalance   (Transactions transactions);
+
+
 }
