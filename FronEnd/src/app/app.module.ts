@@ -13,12 +13,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { DatailsCustomerComponent } from './pages/table-customer/datails-customer/datails-customer.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    DatailsCustomerComponent
+    DatailsCustomerComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +36,11 @@ import { DatailsCustomerComponent } from './pages/table-customer/datails-custome
     SidebarModule,
     MatIconModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatButtonModule,
+    LayoutModule
 
 
   ],

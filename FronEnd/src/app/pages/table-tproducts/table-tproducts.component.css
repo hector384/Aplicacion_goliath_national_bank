@@ -1,0 +1,53 @@
+
+table {
+  width:70%;
+  
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td,th {
+  width: 25%;
+}
+mat-card{
+  max-width: auto ;
+  min-width: auto;
+  margin:  auto;
+  text-align: center;
+  height: auto ;
+  padding: 1rem 1rem;
+}
+.table{
+  max-width: auto ;
+  min-width: auto;
+}
+.btn_box{
+flex :1;
+display:inline-block ;
+
+width: 200px;
+height: 60px ;
+margin: 5px 5px 5px 5px ;
+
+}
+.full-width-input{
+  width: 50%;
+  margin-right: 40px;
+  
+}
+.form{
+  text-align: left;
+}
+.btn1{
+  border-radius: 40px;
+  
+}
+.content {
+  width:auto;
+  min-height: 450px;
+  height: calc(100%/3);
+  flex-wrap: wrap;
+}

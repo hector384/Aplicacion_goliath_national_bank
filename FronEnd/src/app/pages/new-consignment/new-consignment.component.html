@@ -1,0 +1,30 @@
+<div class="login-form">
+    <mat-card>
+        <div class="divimg">
+            <img class="img" src="./assets/img/GNB.png" alt="picture of a bank">
+        </div>
+        <mat-card-content>
+            <form [formGroup]="newTransactionForm" (ngSubmit)="onSaveNewconsignment(newTransactionForm.value)">
+                <mat-form-field class="full-width-input">
+                    <input type="text" matInput placeholder="descripcion: " formControlName="transaction_description"
+                        required>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <mat-label>tipo de movimiento: </mat-label>
+                    <select matNativeControl formControlName="transaction_tipe">
+                        <option value="Consignacion">Consignacion</option>
+                    </select>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="number" matInput placeholder="Valor del movimiento:"
+                        formControlName="valueOfTransaction" required>
+                </mat-form-field>
+                <mat-form-field class="full-width-input">
+                    <input type="number" matInput placeholder="Producto de Destino:" formControlName="reciberAccount"
+                        required>
+                </mat-form-field>
+
+                <button mat-raised-button color="primary">Submit</button>
+            </form>
+        </mat-card-content>
+    </mat-card>

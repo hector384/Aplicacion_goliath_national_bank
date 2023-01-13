@@ -29,5 +29,6 @@ export interface TProducts {
     available_balance: number,
     emiterAccount: string,
     reciberAccount: string,
-    transaction_tipe: string
+    transaction_tipe: string,
+    transaction_date: string,
 }

@@ -1,0 +1,73 @@
+<mat-card class="content">
+    <mat-card-content class="content">
+
+        <form class="form" [formGroup]="NewTProductsForm" (ngSubmit)="queryNewTproducts(NewTProductsForm.value)">
+            <p>Consultar Productos por numero de Cuenta: </p>
+            <mat-form-field class="full-width-input">
+                <input type="number" formControlName="number_Identification" matInput placeholder="number" required>
+            </mat-form-field>
+            <button mat-raised-button class="btn1" color="primary">consultar</button>
+        </form>
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="TproductD" class="table " matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="transaction_date">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha del movimiento</th>
+                    <td mat-cell *matCellDef="let row"> {{row.transaction_date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="transaction_tipe">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de transaccion: </th>
+                    <td mat-cell *matCellDef="let row">{{row.transaction_tipe}} </td>
+                </ng-container>
+                <ng-container matColumnDef="transaction_description">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripcion: </th>
+                    <td mat-cell *matCellDef="let row"> {{row.transaction_description}} </td>
+                </ng-container>
+                <!-- Progress Column -->
+                <ng-container matColumnDef="movement_type">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Tipo de Movimiento: </th>
+                    <td mat-cell *matCellDef="let row"> {{row.movement_type}} </td>
+                </ng-container>
+                <ng-container matColumnDef="balance">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Saldo: </th>
+                    <td mat-cell *matCellDef="let row"> {{row.balance}} </td>
+                </ng-container>
+                <ng-container matColumnDef="available_balance">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Saldo Disponible: </th>
+                    <td mat-cell *matCellDef="let row"> {{row.available_balance}} </td>
+                </ng-container>
+                <ng-container matColumnDef="valueOfTransaction">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Monto de la transaccion: </th>
+                    <td mat-cell *matCellDef="let row"> {{row.valueOfTransaction}} </td>
+                </ng-container>
+                <ng-container matColumnDef="Actions" class="Actions">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        Accion: </th>
+                    <td mat-cell *matCellDef="let row">
+                        <div class="btn_box">
+                            <button style="margin-right: 11px;" mat-fab color="accent"> <mat-icon
+                                    class="mat-18">details</mat-icon>
+                            </button>
+                            <button style="margin-right: 11px;" mat-fab
+                                color="primary"><mat-icon>edit</mat-icon></button>
+                            <button mat-fab color="warn" (click)="DeleteTProducts(row)">
+                                <mat-icon class="mat-18">delete</mat-icon></button>
+                        </div>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="client_bornDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de nacimiento: </th>
+                    <td mat-cell *matCellDef="let row"> {{row.client_bornDate | date: "yyyy-MM-dd"}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    </mat-card-content>
+
+</mat-card>

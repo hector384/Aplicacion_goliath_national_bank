@@ -11,6 +11,7 @@ export class HeaderComponent {
   constructor() { }
   ngOnInit(): void { }
   onToggleSidenav(): void {
+    this.isAdmin = this.isAdmin
     this.toggleSidenav.emit();
   }
 }

@@ -1,8 +1,5 @@
-{{isAdmin}} - Role
 <mat-toolbar color="primary">
-   <ng-container *ngIf="!isAdmin; else viewAdmin">
-
-
+   <ng-container *ngIf="isAdmin; else viewAdmin">
       <span>Goliath national Bank</span>
       <span class="spacer"> </span>
       <div>
@@ -13,7 +10,7 @@
          <a mat-button [routerLink]="'/table-customer'">Lista de clientes</a>
       </div>
    </ng-container>
-   <button (click)="isAdmin=!isAdmin">Change</button>
+
 </mat-toolbar>
 
 <ng-template #viewAdmin>
@@ -21,4 +18,7 @@
       <mat-icon>menu</mat-icon>
    </button>
    <span class="spacer"></span>
+   <span>Goliath national Bank</span>
+   <span class="spacer"></span>
+
 </ng-template>

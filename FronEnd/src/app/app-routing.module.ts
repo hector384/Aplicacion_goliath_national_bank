@@ -10,6 +10,9 @@ const routes: Routes = [{ path: 'form-user', loadChildren: () => import('./pages
 { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
 { path: 'table-products', loadChildren: () => import('./pages/table-products/table-products.module').then(m => m.TableProductsModule) },
 { path: 'table-Tproducts', loadChildren: () => import('./pages/table-tproducts/table-tproducts.module').then(m => m.TableTproductsModule) },
+{ path: 'new-transaction', loadChildren: () => import('./pages/new-transaction/new-transaction.module').then(m => m.NewTransactionModule) },
+{ path: 'new-Withdrawal', loadChildren: () => import('./pages/new-withdrawal/new-withdrawal.module').then(m => m.NewWithdrawalModule) },
+{ path: 'new-consignment', loadChildren: () => import('./pages/new-consignment/new-consignment.module').then(m => m.NewConsignmentModule) },
 ];
 
 @NgModule({
