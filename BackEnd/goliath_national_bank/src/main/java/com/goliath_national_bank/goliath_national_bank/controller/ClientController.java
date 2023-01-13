@@ -11,10 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.persistence.PostUpdate;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/clients")
 public class ClientController {
 
@@ -38,6 +40,9 @@ public class ClientController {
     }
     @PostMapping("/post")
     public ResponseEntity<Client> createClients (@RequestBody Client client){
+        client.setCreation_user("Admin");
+        client.setUser_modification("admin");
+        client.setCreation_date(LocalDate.now());
         return new ResponseEntity<>(clientService.createClient(client),
                 HttpStatus.CREATED
                 );
@@ -52,6 +57,7 @@ public class ClientController {
     }
     @PutMapping("/put/{id}")
     public ResponseEntity<Client> updateClient(@RequestBody Client client){
+        client.setCreation_date(LocalDate.now());
         return new ResponseEntity<>(clientService.updateClient(client), HttpStatus.OK);
 
 

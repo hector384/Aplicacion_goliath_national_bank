@@ -11,7 +11,9 @@ import { Subject } from 'rxjs';
 export class ProductsService {
 
   _url = 'http://localhost:8090/Products'
+  _urlP = 'http://localhost:8090/Products/CC'
   _urlput = 'http://localhost:8090/Products/post'
+
   status!: string;
   errorMessage!: string;
 
@@ -25,12 +27,13 @@ export class ProductsService {
   }
 
 
+
   createProducts(products: Products) {
     return this.http.post<UserData>(this._urlput, products);
   }
   deleteProductsById(products: Products) {
 
-    return this.http.delete(`${this._url}/${products.id_account}`)
+    return this.http.delete(`${this._url}/delete/${products.id_account}`)
       .subscribe({
         next: data => {
           this.status = 'Delete successful';
@@ -41,6 +44,11 @@ export class ProductsService {
         }
       })
 
+
+  }
+  findPrudctsByCC(products: Products) {
+    let header = new HttpHeaders().set('Content-Type', 'application/json')
+    return this.http.get(`${this._urlP}/${products}`, { headers: header });
 
   }
 

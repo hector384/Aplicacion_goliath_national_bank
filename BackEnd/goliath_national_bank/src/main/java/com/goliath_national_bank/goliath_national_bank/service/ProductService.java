@@ -10,7 +10,17 @@ public interface ProductService {
 
     public Products createProducts(Products products);
     public List<Products> getAllProducts();
-    public Optional<Products> getProductsById(int id);
+    public Optional<Products> getProductsById(int product_id);
+
+     public List<Products> getProductsByCC(int number_Identification);
+
     public boolean deleteProductsById (int id);
+    public boolean minBalance_accuount(Products products);
+
+
+    String acountGenerator(Products dataIn);
+
+    public boolean Verify_Existence (Products products );
+
 
 }

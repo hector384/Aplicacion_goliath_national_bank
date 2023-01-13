@@ -2,6 +2,7 @@ package com.goliath_national_bank.goliath_national_bank.entity;
 
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,13 +13,13 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_client;
-    private int tipeIdentification;
+    private String tipeIdentification;
     private int number_Identification;
     private String name_Client;
     private String lastNameClient;
     private String email_Client;
     private Date client_bornDate;
-    private Date creation_date;
+    private LocalDate creation_date;
     private String creation_user;
     private Date modification_dateTime;
     private String user_modification;
@@ -36,11 +37,11 @@ public class Client {
         this.id_client = id_client;
     }
 
-    public int getTipeIdentification() {
+    public String getTipeIdentification() {
         return tipeIdentification;
     }
 
-    public void setTipeIdentification(int tipeIdentification) {
+    public void setTipeIdentification(String tipeIdentification) {
         this.tipeIdentification = tipeIdentification;
     }
 
@@ -84,11 +85,11 @@ public class Client {
         this.client_bornDate = client_bornDate;
     }
 
-    public Date getCreation_date() {
+    public LocalDate getCreation_date() {
         return creation_date;
     }
 
-    public void setCreation_date(Date creation_date) {
+    public void setCreation_date(LocalDate creation_date) {
         this.creation_date = creation_date;
     }
 

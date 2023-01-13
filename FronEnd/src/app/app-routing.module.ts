@@ -8,7 +8,8 @@ const routes: Routes = [{ path: 'form-user', loadChildren: () => import('./pages
 { path: 'login', loadChildren: () => import('./pages/auth/login/login.module').then(m => m.LoginModule) },
 { path: 'table-customer', loadChildren: () => import('./pages/table-customer/table-customer.module').then(m => m.TableCustomerModule) },
 { path: 'products', loadChildren: () => import('./pages/products/products.module').then(m => m.ProductsModule) },
-
+{ path: 'table-products', loadChildren: () => import('./pages/table-products/table-products.module').then(m => m.TableProductsModule) },
+{ path: 'table-Tproducts', loadChildren: () => import('./pages/table-tproducts/table-tproducts.module').then(m => m.TableTproductsModule) },
 ];
 
 @NgModule({

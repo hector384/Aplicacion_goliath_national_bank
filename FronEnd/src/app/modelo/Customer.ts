@@ -17,5 +17,17 @@ export interface Products {
     type_account: String,
     estate_account: String,
     available_balance: Number,
-    number_Identification: String
+    number_Identification: String,
+    number_account: String,
+}
+export interface TProducts {
+    id_Transaction: number,
+    transaction_description: string,
+    valueOfTransaction: number,
+    movement_type: string,
+    balance: number,
+    available_balance: number,
+    emiterAccount: string,
+    reciberAccount: string,
+    transaction_tipe: string
 }

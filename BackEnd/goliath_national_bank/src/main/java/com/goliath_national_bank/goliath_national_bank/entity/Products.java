@@ -1,7 +1,7 @@
 package com.goliath_national_bank.goliath_national_bank.entity;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name= "Products")
@@ -12,15 +12,17 @@ public class Products {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_account;
     private String type_account;
-    private int number_account;
+    private String number_account;
     private String estate_account;
     private int balance_account;
     private int available_balance;
-    private boolean GMF_on;
-    private Date creation_date;
+    private String GMF_on;
+    private LocalDate creation_date;
     private String Creation_user;
-    private Date modification_date;
+    private LocalDate modification_date;
     private String modification_user;
+
+    private  int number_Identification;
 
     public Products() {
     }
@@ -29,7 +31,15 @@ public class Products {
         return id_account;
     }
 
-    public void setId_account(int id_account) {
+    public int getNumber_Identification() {
+        return number_Identification;
+    }
+
+    public void setNumber_Identification(int number_Identification) {
+        this.number_Identification = number_Identification;
+    }
+
+    public void setId_account() {
         this.id_account = id_account;
     }
 
@@ -41,11 +51,11 @@ public class Products {
         this.type_account = type_account;
     }
 
-    public int getNumber_account() {
+    public String getNumber_account() {
         return number_account;
     }
 
-    public void setNumber_account(int number_account) {
+    public void setNumber_account(String number_account) {
         this.number_account = number_account;
     }
 
@@ -73,19 +83,19 @@ public class Products {
         this.available_balance = available_balance;
     }
 
-    public boolean isGMF_on() {
+    public String getGMF_on() {
         return GMF_on;
     }
 
-    public void setGMF_on(boolean GMF_on) {
+    public void setGMF_on(String GMF_on) {
         this.GMF_on = GMF_on;
     }
 
-    public Date getCreation_date() {
+    public LocalDate getCreation_date() {
         return creation_date;
     }
 
-    public void setCreation_date(Date creation_date) {
+    public void setCreation_date(LocalDate creation_date) {
         this.creation_date = creation_date;
     }
 
@@ -97,11 +107,11 @@ public class Products {
         Creation_user = creation_user;
     }
 
-    public Date getModification_date() {
+    public LocalDate getModification_date() {
         return modification_date;
     }
 
-    public void setModification_date(Date modification_date) {
+    public void setModification_date(LocalDate modification_date) {
         this.modification_date = modification_date;
     }
 
