@@ -39,7 +39,6 @@ export class FormUserComponent implements OnInit {
   constructor(
     private clientService: ClientsService,
     private router: Router,
-    private fb: FormBuilder,
 
   ) {
 

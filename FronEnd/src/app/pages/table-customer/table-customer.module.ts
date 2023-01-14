@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TableCustomerRoutingModule } from './table-customer-routing.module';
 import { TableCustomerComponent } from './table-customer.component';
 import { MaterialModule } from 'src/app/material.module';
+import { FormComponent } from '../form-user/components/form/form.component';
+import { FormUserModule } from '../form-user/form-user.module';
 
 
 @NgModule({
@@ -13,7 +15,8 @@ import { MaterialModule } from 'src/app/material.module';
   imports: [
     CommonModule,
     TableCustomerRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormUserModule
   ]
 })
 export class TableCustomerModule { }

@@ -18,6 +18,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { FormUserModule } from "./pages/form-user/form-user.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +27,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     DatailsCustomerComponent,
     DashboardComponent
   ],
+  providers: [],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -40,11 +43,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatGridListModule,
     MatMenuModule,
     MatButtonModule,
-    LayoutModule
-
-
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    LayoutModule,
+    FormUserModule
+  ]
 })
 export class AppModule { }

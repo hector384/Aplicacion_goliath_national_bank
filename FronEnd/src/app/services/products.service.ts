@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserData } from '../pages/table-customer/table-customer.component';
-import { Products } from '../modelo/Customer';
+import { Customer, Products } from '../modelo/Customer';
 import { Subject } from 'rxjs';
 
 
@@ -29,7 +28,7 @@ export class ProductsService {
 
 
   createProducts(products: Products) {
-    return this.http.post<UserData>(this._urlput, products);
+    return this.http.post<Customer>(this._urlput, products);
   }
   deleteProductsById(products: Products) {
 

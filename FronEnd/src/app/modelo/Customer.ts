@@ -1,24 +1,24 @@
 export interface Customer {
-    id_client: String;
-    name_Client: String,
-    lastNameClient: String,
-    number_Identification: String,
-    email_Client: String,
-    client_bornDate: String,
-    client_Direction: String,
-    tipeIdentification: String,
-    creationDate: String,
+    id_client: number;
+    name_Client: string,
+    lastNameClient: string,
+    number_Identification: string,
+    email_Client: string,
+    client_bornDate: string,
+    client_Direction: string,
+    tipeIdentification: string,
+    creationDate: string,
 
 }
 
 export interface Products {
-    id_account: String,
-    gmf_on: String,
-    type_account: String,
-    estate_account: String,
-    available_balance: Number,
-    number_Identification: String,
-    number_account: String,
+    id_account: string,
+    gmf_on: string,
+    type_account: string,
+    estate_account: string,
+    available_balance: number,
+    number_Identification: string,
+    number_account: string,
 }
 export interface TProducts {
     id_Transaction: number,

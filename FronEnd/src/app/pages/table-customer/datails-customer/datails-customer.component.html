@@ -1,1 +1,10 @@
-<p>datails-customer works!</p>
+<div class="login-form">
+    <mat-card>
+        <div class="divimg">
+            <img class="img" src="./assets/img/GNB.png" alt="picture of a bank">
+        </div>
+        <mat-card-content>
+            <app-form *ngIf="customer" (eventSubmit)="editCustomer($event)" [customer]="customer"></app-form>
+        </mat-card-content>
+    </mat-card>
+</div>

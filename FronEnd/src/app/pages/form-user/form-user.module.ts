@@ -7,10 +7,12 @@ import { MaterialModule } from '../.././material.module';
 import { MatIconModule } from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
-    FormUserComponent
+    FormUserComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
@@ -19,6 +21,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     ReactiveFormsModule,
     MatSelectModule
+  ],
+  exports: [
+    FormUserComponent,
+    FormComponent
   ]
 })
 export class FormUserModule { }

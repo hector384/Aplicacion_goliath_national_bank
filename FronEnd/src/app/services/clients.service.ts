@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserData } from '../pages/table-customer/table-customer.component';
 import { Customer } from '../modelo/Customer';
 import { Subject } from 'rxjs';
 
@@ -13,6 +12,7 @@ export class ClientsService {
   _url = 'http://localhost:8090/clients'
   _urldelete = 'http://localhost:8090/clients/delete'
   _urlput = 'http://localhost:8090/clients/post'
+  _urlP = 'http://localhost:8090/clients/put'
   status!: string;
   constructor(
     private http: HttpClient,
@@ -22,11 +22,11 @@ export class ClientsService {
 
   getClients() {
     let header = new HttpHeaders().set('Content-Type', 'application/json')
-    return this.http.get(this._url, { headers: header });
+    return this.http.get<Customer[]>(this._url, { headers: header });
   }
 
   createCustomer(customer: Customer) {
-    return this.http.post<UserData>(this._urlput, customer);
+    return this.http.post<Customer>(this._urlput, customer);
   }
 
   deleteCustomerById(customer: Customer) {
@@ -41,7 +41,9 @@ export class ClientsService {
           console.error('There was an error!', error);
         }
       })
-
+  }
+  putCustomer(customer: Customer) {
+    return this.http.put(`${this._urlP}/${customer.id_client}`, customer)
 
   }
 }

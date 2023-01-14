@@ -6,22 +6,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import Swal from 'sweetalert2';
-
-
-
-export interface UserData {
-  id_client: string;
-  name_Client: string;
-  lastNameClient: string;
-  number_Identification: string;
-  email_Client: string;
-  client_bornDate: string;
-  client_Direction: string;
-  tipeIdentification: string;
-  creationDate: string;
-
-
-}
+import { Customer } from 'src/app/modelo/Customer';
 
 
 @Component({
@@ -34,7 +19,7 @@ export class TableCustomerComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['id_client', 'name_Client', 'number_Identification',
     'Actions']
-  dataSource: MatTableDataSource<UserData>;
+  dataSource: MatTableDataSource<Customer>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -71,7 +56,7 @@ export class TableCustomerComponent implements AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  DeleteCustomer(user: UserData) {
+  DeleteCustomer(user: Customer) {
     Swal.fire({
       title: '¿Seguro que desea eliminar este usuario?',
       icon: 'warning',
