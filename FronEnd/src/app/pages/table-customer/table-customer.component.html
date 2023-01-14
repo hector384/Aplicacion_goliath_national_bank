@@ -33,8 +33,10 @@
                                         class="mat-18">details</mat-icon>
                                 </button>
                             </a>
-                            <button style="margin-right: 11px;" mat-fab
-                                color="primary"><mat-icon>edit</mat-icon></button>
+                            <a [routerLink]="'detail-customer/'+row.id_client">
+                                <button style="margin-right: 11px;" mat-fab
+                                    color="primary"><mat-icon>edit</mat-icon></button>
+                            </a>
                             <button mat-fab color="warn" (click)="DeleteCustomer(row)">
                                 <mat-icon class="mat-18">delete</mat-icon></button>
                         </div>
