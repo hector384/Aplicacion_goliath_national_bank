@@ -1,10 +1,12 @@
 package com.goliath_national_bank.goliath_national_bank.controller;
 
 
+import com.goliath_national_bank.goliath_national_bank.entity.Products;
 import com.goliath_national_bank.goliath_national_bank.entity.Transactions;
 import com.goliath_national_bank.goliath_national_bank.repository.TransactionsRepository;
 import com.goliath_national_bank.goliath_national_bank.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,8 +23,7 @@ public class TransactionController {
 
     @Autowired
     TransactionService transactionService;
-    @Autowired
-    private TransactionsRepository transactionsRepository;
+
 
     @GetMapping("/CC/{emiterAccount}")
 
@@ -41,6 +42,7 @@ public class TransactionController {
             if(!transactionService.VeryAcount2Exist(transactions)){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+            transactionService.processTransaction(transactions);
             transactions.setTransaction_date(LocalDate.now());
             return new ResponseEntity<>(transactionService.createTransactions(transactions),
                     HttpStatus.CREATED );
@@ -74,6 +76,7 @@ public class TransactionController {
             if(!transactionService.VeryAcountExist(transactions) && !transactionService.VeryAcount2Exist(transactions)){
                 return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
             }
+
             transactions.setTransaction_date(LocalDate.now());
             return new ResponseEntity<>(transactionService.createTransactions(transactions),
                     HttpStatus.CREATED );

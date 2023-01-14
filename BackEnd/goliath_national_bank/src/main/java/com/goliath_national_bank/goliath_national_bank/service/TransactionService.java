@@ -1,9 +1,9 @@
 package com.goliath_national_bank.goliath_national_bank.service;
 
 
-import com.goliath_national_bank.goliath_national_bank.entity.Products;
 import com.goliath_national_bank.goliath_national_bank.entity.Transactions;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,6 +20,8 @@ public interface TransactionService {
     public boolean VeryAcount2Exist (Transactions transactions);
 
     public String updateBalance   (Transactions transactions);
+
+    public ArrayList<String> processTransaction (Transactions transactions);
 
 
 }

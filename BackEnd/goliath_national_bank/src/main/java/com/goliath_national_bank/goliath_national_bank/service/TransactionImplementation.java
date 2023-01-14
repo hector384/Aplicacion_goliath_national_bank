@@ -2,11 +2,12 @@ package com.goliath_national_bank.goliath_national_bank.service;
 
 import com.goliath_national_bank.goliath_national_bank.entity.Products;
 import com.goliath_national_bank.goliath_national_bank.entity.Transactions;
-import com.goliath_national_bank.goliath_national_bank.repository.ProductRepository;
 import com.goliath_national_bank.goliath_national_bank.repository.TransactionsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -18,6 +19,10 @@ public class TransactionImplementation  implements TransactionService {
     TransactionsRepository transactionsRepository;
     @Autowired
     ProductService productService;
+
+    @Lazy
+    @Autowired
+    Products products;
 
 
     @Override
@@ -70,6 +75,16 @@ public class TransactionImplementation  implements TransactionService {
     @Override
     public String updateBalance(Transactions transactions) {
         return null;
+    }
+
+    @Override
+    public ArrayList<String> processTransaction(Transactions transactions) {
+        ArrayList<String> ProductsArrayList = new ArrayList<String>();
+        ProductsArrayList.add(productService.getAllProducts().toString());
+
+        System.out.println(ProductsArrayList);
+        
+        return ProductsArrayList ;
     }
 
 
